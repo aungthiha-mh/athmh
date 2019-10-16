@@ -4,7 +4,7 @@
 int main(int argc , char** argv){
 	ros::init(argc,argv,"client_node");
 	ros::NodeHandle n;
-	ros::service::waitForService("add_two_integers_service");
+	ros::service::waitForService("add_two_integers_service"); 
 	ros::ServiceClient client=n.serviceClient<ros_basics::AddTwoInts>("add_two_integers_service");
 	ros::Rate r (10);
 	ros_basics::AddTwoInts srv;
