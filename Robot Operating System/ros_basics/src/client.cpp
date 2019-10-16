@@ -10,7 +10,7 @@ int main(int argc , char** argv){
 	ros_basics::AddTwoInts srv;
 	srv.request.a = 3;
 	srv.request.b = 4;
-	srv.request.c = 5;
+	srv.request.c = 5; 
 	while(ros::ok()){
 		if(client.call(srv)){
 			ROS_INFO("The answer is : %d", (int)srv.response.result);
