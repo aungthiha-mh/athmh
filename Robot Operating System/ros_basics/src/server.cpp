@@ -6,7 +6,7 @@ bool add(ros_basics::AddTwoInts::Request &req,
 		 ros_basics::AddTwoInts::Response &res)
 {
 	res.result = req.a + req.b +req.c;
-	ROS_INFO("SENT!"); 
+	ROS_INFO("SENT!");
 	ROS_INFO("Multiplication is [%d]", (int)res.result);
 	return true;
 }

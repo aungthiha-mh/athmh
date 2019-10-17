@@ -9,6 +9,7 @@ project(ros_basics)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   actionlib_msgs
+  actionlib
   roscpp
   rospy
   std_msgs
@@ -65,11 +66,12 @@ find_package(catkin REQUIRED COMPONENTS
  )
 
 ## Generate actions in the 'action' folder
-# add_action_files(
-#   FILES
+ add_action_files(
+   FILES
+   Demo.action
 #   Action1.action
 #   Action2.action
-# )
+ )
 
 ## Generate added messages and services with any dependencies listed here
  generate_messages(
@@ -108,15 +110,15 @@ find_package(catkin REQUIRED COMPONENTS
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
-#  INCLUDE_DIRS include
-#  LIBRARIES ros_basics
+  INCLUDE_DIRS include
+  LIBRARIES ros_basics
   CATKIN_DEPENDS
   actionlib_msgs
   roscpp
   rospy
   std_msgs
   message_runtime
-#  DEPENDS system_lib
+  DEPENDS system_lib
 )
 
 ###########
@@ -128,6 +130,7 @@ catkin_package(
 include_directories(
 # include
   ${catkin_INCLUDE_DIRS}
+  ${Boost_INCLUDE_DIRS}
 )
 
 ## Declare a C++ library
@@ -223,3 +226,19 @@ target_link_libraries(publisher_counter ${catkin_LIBRARIES})
 add_executable(subscriber_counter src/subscriber_counter.cpp)
 add_dependencies(subscriber_counter ros_basics_generate_messages_cpp)
 target_link_libraries(subscriber_counter ${catkin_LIBRARIES})
+
+add_executable(client src/client.cpp)
+add_dependencies(client ros_basics_generate_messages_cpp)
+target_link_libraries(client ${catkin_LIBRARIES})
+
+add_executable(server src/server.cpp)
+add_dependencies(server ros_basics_generate_messages_cpp)
+target_link_libraries(server ${catkin_LIBRARIES})
+
+add_executable(action_server src/action_server.cpp)
+add_dependencies(action_server node_tuto_generate_messages_cpp)
+target_link_libraries(action_server ${catkin_LIBRARIES})
+
+add_executable(action_client src/action_client.cpp)
+add_dependencies(action_client node_tuto_generate_messages_cpp)
+target_link_libraries(action_client ${catkin_LIBRARIES})
