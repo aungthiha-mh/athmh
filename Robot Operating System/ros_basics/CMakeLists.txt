@@ -13,6 +13,8 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
   std_msgs
+  tf
+  turtlesim
   message_generation
 )
 
@@ -236,9 +238,21 @@ add_dependencies(server ros_basics_generate_messages_cpp)
 target_link_libraries(server ${catkin_LIBRARIES})
 
 add_executable(action_server src/action_server.cpp)
-add_dependencies(action_server node_tuto_generate_messages_cpp)
+add_dependencies(action_server ros_basics_generate_messages_cpp)
 target_link_libraries(action_server ${catkin_LIBRARIES})
 
 add_executable(action_client src/action_client.cpp)
-add_dependencies(action_client node_tuto_generate_messages_cpp)
+add_dependencies(action_client ros_basics_generate_messages_cpp)
 target_link_libraries(action_client ${catkin_LIBRARIES})
+
+add_executable(tf_turtle_broadcaster src/tf_turtle_broadcaster.cpp)
+add_dependencies(tf_turtle_broadcaster ros_basics_generate_messages_cpp)
+target_link_libraries(tf_turtle_broadcaster ${catkin_LIBRARIES})
+
+add_executable(tf_turtle_listener src/tf_turtle_listener.cpp)
+add_dependencies(tf_turtle_listener ros_basics_generate_messages_cpp)
+target_link_libraries(tf_turtle_listener ${catkin_LIBRARIES})
+
+add_executable(tf_frame_broadcaster src/tf_frame_broadcaster.cpp)
+add_dependencies(tf_frame_broadcaster ros_basics_generate_messages_cpp)
+target_link_libraries(tf_frame_broadcaster ${catkin_LIBRARIES})
