@@ -12,7 +12,9 @@ def posecallback(msg, turtlename):
 
 if __name__ == '__main__':
 
-  rospy.init_node('turtle_tf_broadcaster')
-  turtlename = rospy.get_param('~turtle')
-  rospy.Subscriber('/%s/pose' % turtlename,turtlesim.msg.Pose,posecallback,turtlename)
-  rospy.spin()
+	while not rospy.is_shutdown():
+
+		rospy.init_node('turtle_tf_broadcaster')
+		turtlename = rospy.get_param('~turtle')
+		rospy.Subscriber('/%s/pose' % turtlename,turtlesim.msg.Pose,posecallback,turtlename)
+		rospy.spin()

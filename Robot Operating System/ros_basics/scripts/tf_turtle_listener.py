@@ -12,6 +12,7 @@ if __name__ == '__main__':
 
     listener = tf.TransformListener()
 
+    
     rospy.wait_for_service('spawn')
     spawner = rospy.ServiceProxy('spawn', turtlesim.srv.Spawn)
     spawner(4, 2, 0, 'turtle2')

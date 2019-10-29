@@ -1,0 +1,58 @@
+Gazebo Plugins -> To install controller interface
+
+sudo apt-get install ros-kinetic-controller-interface 
+sudo apt-get install ros-kinetic-gazebo-ros-control
+sudo apt-get install ros-kinetic-joint-state-controller
+sudo apt-get install ros-kinetic-effort-controllers
+
+_________________________________________________________________________________________________________
+
+How to run empty world
+
+roslaunch gazebo_ros empty_world.launch
+
+__________________________________________________________________________________________________________
+
+How to run urdf file from terminal
+
+rosrun gazebo_ros spawn_model -file ~/catkin_ws/src/ros_basics/urdf/example_robot_description.urdf
+ -urdf -z 1 -model example_robot_description
+
+ _________________________________________________________________________________________________________
+
+How to write URDF launch file 
+
+
+<launch>
+  <param name="robot_description" 
+   textfile="$(find ros_basics)/urdf/example_robot_description.urdf"/>
+
+  <!-- Spawn a robot into Gazebo -->
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" 
+     args="-param robot_description -urdf -model one_DOF_robot" />
+</launch>
+
+_________________________________________________________________________________________________________
+
+How to change xacro file format to urdf file format
+
+rosrun xacro xacro.py mobot.xacro > ath.urdf
+check_urdf ath.urdf
+urdf_to_graphiz ath.urdf
+
+_________________________________________________________________________________________________________
+
+To search mobile robot model in firefox
+
+ros mobile robot packages
+ur10 robot pkg
+
+
+
+
+
+
+
+
+
+

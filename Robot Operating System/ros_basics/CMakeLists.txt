@@ -71,6 +71,7 @@ find_package(catkin REQUIRED COMPONENTS
  add_action_files(
    FILES
    Demo.action
+   Calculation.action
 #   Action1.action
 #   Action2.action
  )
