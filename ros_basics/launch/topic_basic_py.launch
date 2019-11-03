@@ -1,7 +1,0 @@
-<launch>
-
-	<node pkg="ros_basics" type="publisher.py" name="publisher_node" output="screen" />
-	<node pkg="ros_basics" type="subscriber.py" name="subscriber_node" output="screen" />
-	<node pkg="rqt_graph" type="rqt_graph" name="rqt_node" output="screen"/>
-
-</launch>

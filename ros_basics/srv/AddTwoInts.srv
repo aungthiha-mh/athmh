@@ -1,5 +1,0 @@
-int64 a
-int64 b
-int32 c
----
-int32 result

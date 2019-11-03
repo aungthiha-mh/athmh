@@ -1,7 +1,0 @@
-<launch>
-
-	<node pkg="ros_basics" type="server.py" name="basic_server_node" output="screen" />
-	<node pkg="ros_basics" type="client.py" name="basic_client_node" output="screen" />
-
-
-</launch>
