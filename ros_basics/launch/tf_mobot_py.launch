@@ -1,0 +1,27 @@
+<launch>
+   
+    <include file="$(find gazebo_ros)/launch/empty_world.launch"/>
+
+    <!-- Convert an urdf and put on parameter server -->
+    <param name="robot_description" textfile="$(find ros_basics)/urdf/mobot2.urdf"/>
+
+    <!-- Convert an xacro and put on parameter server -->
+    <!-- <param name="robot_description" command="$(find xacro)/xacro.py '$(find ros_basics)/xacro/mobot2.xacro'" /> -->
+
+    <!-- Spawn a robot into Gazebo -->
+    <node name="spawn_urdf1" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model mobot1" />
+    <node name="spawn_urdf2" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model mobot2" />
+
+    <node pkg="ros_basics" type="mobot2_gui_button_control.py" name="mobot2_gui_node" output="screen" />
+
+    <node pkg="ros_basics" type="tf_mobot_broadcaster.py" name="mobot1_tf_broadcaster_node" > <param name="mobot" type="string" value="mobot1" />  </node>
+    <node pkg="ros_basics" type="tf_mobot_broadcaster.py" name="mobot2_tf_broadcaster_node" > <param name="mobot" type="string" value="mobot2" />  </node>
+
+
+
+    <node pkg="ros_basics" type="tf_mobot_listener.py" name="mobot_tf_listener" />
+
+    <!-- <node pkg="ros_basics" type="tf_frame_broadcaster.py" name="broadcaster_frame" /> -->
+
+</launch>
+

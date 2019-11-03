@@ -1,0 +1,9 @@
+#goal definition
+int32 num1
+int32 num2
+---
+#result definition
+int32 answer
+---
+#feedback
+int32 situation
