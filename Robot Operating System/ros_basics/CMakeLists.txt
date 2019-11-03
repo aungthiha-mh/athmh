@@ -257,3 +257,8 @@ target_link_libraries(tf_turtle_listener ${catkin_LIBRARIES})
 add_executable(tf_frame_broadcaster src/tf_frame_broadcaster.cpp)
 add_dependencies(tf_frame_broadcaster ros_basics_generate_messages_cpp)
 target_link_libraries(tf_frame_broadcaster ${catkin_LIBRARIES})
+
+add_executable(mobot2_teleop_key src/mobot2_teleop_key.cpp)
+add_dependencies(mobot2_teleop_key ros_basics_generate_messages_cpp)
+target_link_libraries(mobot2_teleop_key ${catkin_LIBRARIES})
+
