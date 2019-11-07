@@ -1,7 +1,7 @@
 <launch>
    
     <include file="$(find gazebo_ros)/launch/empty_world.launch"/>
-
+    <!-- <node pkg="rviz" type="rviz" name="rviz"/> -->
     <!-- Convert an urdf and put on parameter server -->
     <param name="robot_description" textfile="$(find ros_basics)/urdf/mobot2.urdf"/>
 

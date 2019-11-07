@@ -12,9 +12,9 @@ if __name__ == '__main__':
 
     listener = tf.TransformListener()
 
-    rospy.wait_for_service('gazebo_msgs/SpawnModel')
+    rospy.wait_for_service('gazebo_msgs/SpawnModel')q
     spawner = rospy.ServiceProxy('gazebo_msgs/SpawnModel', gazebo_msgs.srv.SpawnModel)
-    spawner(4, 2, 0, 'mobot2')
+    spawner(0, 0, 0, 'mobot2')
 
     mobot_vel = rospy.Publisher('mobot2/cmd_vel', geometry_msgs.msg.Twist,queue_size=1)
 
